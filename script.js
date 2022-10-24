@@ -76,6 +76,9 @@ function deco() {
                         }
                 }
                 campoTexto[1].setAttribute("value", exibircifra.join(""))
+                exibircifra.splice(0, exibircifra.length)
+                numerossomadoscifra.splice(0, numerossomadoscifra.length)
+                numeroscifra.splice(0, numeroscifra.length)
         }else if(selecionar[0].selected == true) {
                 let texto = campoTexto[0].value
                 let resultado = atob(texto);
