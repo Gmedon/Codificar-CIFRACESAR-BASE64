@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <article class="wrapper">
+        <p class="titulo">Codificador</p>
+        <div class="select">
+            <select id="escolha">
+              <option value="1" class="opcao">BASE64</option>
+              <option value="2" class="opcao">CIFRA DE CESAR</option>
+            </select>
+          </div>
+          <input type="number" placeholder="Passos" class="numero-passos">
+        <textarea class="text"></textarea>
+        <div class="corpo-bt">
+        <div class="text-box">
+            <a href="#" id="Codificar" class="btn btn-white btn-animate" onclick="cod()">Codificar</a>
+        </div>
+        <div class="text-box1">
+            <a href="#" id="Decodificar" class="btn1 btn-white1 btn-animate1" onclick="deco()">Decodificar</a>
+        </div>
+        <div class="text-box1">
+            <a href="#" id="limpar" class="btn1 btn-white1 btn-animate1" onclick="limpar()">Limpar</a>
+        </div>
+        </div>
+        <input type="text" value="" class="text" />
+    </article>
+    <script src="script.js"></script>
+</body>
+</html>
