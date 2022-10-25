@@ -5,8 +5,8 @@ let selecionar = opcao.options
 let numeroscifra = []
 let numerossomadoscifra = []
 let exibircifra = []
-let alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
-"T", "U", "V", "W", "X", "Y", "Z"]
+let alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+"t", "u", "v", "w", "x", "y", "z"]
 alfabeto[32] = " "
 alfabeto[33] = "!"
 alfabeto[35] = "#"
@@ -19,25 +19,34 @@ alfabeto[43] = "+"
 alfabeto[61] = "="
 alfabeto[60] = "<"
 alfabeto[62] = ">" 
-console.log(alfabeto)
+alfabeto[65] = "A"
+let complete = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "q", "q",
+"t", "u", "v", "w", "x", "y", "z"]
+let alfabetoM = [ ...complete, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
+"T", "U", "V", "W", "X", "Y", "Z"]
+
+console.log(alfabetoM)
 function cod() {
         if(selecionar[1].selected == true) {
                 let texto = campoTexto[0].value
-                texto1 = texto.toLowerCase()
                 let qpassos = passos.value
                 let qpassos1 = parseInt(qpassos)
-                for(let i = 0; i < texto1.length; i++) {
-                        numeroscifra.push(texto1.charCodeAt(i))
+                for(let i = 0; i < texto.length; i++) {
+                        numeroscifra.push(texto.charCodeAt(i))
                 }
-                console.log(numeroscifra)
                 for(let j in numeroscifra) {
-                        numerossomadoscifra.push(((numeroscifra[j] - 97) + qpassos1)%26)
+                        if(numeroscifra[j] >= 97) {
+                                numerossomadoscifra.push((numeroscifra[j] - 97 + qpassos1)%26)
+                        }else if(numeroscifra[j] >= 65 && numeroscifra[j] <= 90) {
+                                numerossomadoscifra.push(((numeroscifra[j] - 65 + qpassos1)%26)+26)
+                        }
                 }
+                console.log(numerossomadoscifra)
                 for(let f = 0; f < numerossomadoscifra.length; f++) {
-                        if(numerossomadoscifra[f] >= 0){
+                        if(numerossomadoscifra[f] <= 25){
                                 exibircifra.push(alfabeto[numerossomadoscifra[f]])
-                        }else {
-                                exibircifra.push(alfabeto[numeroscifra[f]])
+                        }else if(numerossomadoscifra[f] >= 26 && numerossomadoscifra[f] <= 51) {
+                                exibircifra.push(alfabetoM[numerossomadoscifra[f]])
                         }
                 }
                 campoTexto[1].setAttribute("value", exibircifra.join(""))
@@ -52,39 +61,32 @@ function cod() {
         }
 }
 function deco() {
-        if(selecionar[1].selected == true) {
-                let texto = campoTexto[0].value
-                texto1 = texto.toLowerCase()
+        let texto = campoTexto[0].value
                 let qpassos = passos.value
                 let qpassos1 = parseInt(qpassos)
-                for(let i = 0; i < texto1.length; i++) {
-                        numeroscifra.push(texto1.charCodeAt(i))
+                for(let i = 0; i < texto.length; i++) {
+                        numeroscifra.push(texto.charCodeAt(i))
                 }
                 for(let j in numeroscifra) {
-                        numerossomadoscifra.push(((numeroscifra[j] - 97) + 26 - qpassos1)%26)
-                }
-                for(let z in numerossomadoscifra){
-                        if(numerossomadoscifra[z] < 0){
-                                numerossomadoscifra[z] = 26;
+                        if(numeroscifra[j] >= 97) {
+                                numerossomadoscifra.push((numeroscifra[j] - 97 + 26 - qpassos1)%26)
+                        }else if(numeroscifra[j] >= 65 && numeroscifra[j] <= 90) {
+                                numerossomadoscifra.push(((numeroscifra[j] - 65 + 26 - qpassos1)%26)+26)
                         }
                 }
+                console.log(numerossomadoscifra)
                 for(let f = 0; f < numerossomadoscifra.length; f++) {
-                        if(numeroscifra[f] >= 97){
+                        if(numerossomadoscifra[f] <= 25){
                                 exibircifra.push(alfabeto[numerossomadoscifra[f]])
-                        }else {
-                                exibircifra.push(alfabeto[numeroscifra[f]])
+                        }else if(numerossomadoscifra[f] >= 26 && numerossomadoscifra[f] <= 51) {
+                                exibircifra.push(alfabetoM[numerossomadoscifra[f]])
                         }
                 }
                 campoTexto[1].setAttribute("value", exibircifra.join(""))
                 exibircifra.splice(0, exibircifra.length)
                 numerossomadoscifra.splice(0, numerossomadoscifra.length)
                 numeroscifra.splice(0, numeroscifra.length)
-        }else if(selecionar[0].selected == true) {
-                let texto = campoTexto[0].value
-                let resultado = atob(texto);
-                campoTexto[1].setAttribute("value", resultado)
         }
-}
 function limpar() {
         seila()
 }
