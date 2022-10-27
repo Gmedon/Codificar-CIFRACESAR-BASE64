@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONVERSOR DE FRASES</title>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <article class="wrapper">
-        <p class="titulo">Codificador</p>
-        <div class="select">
-            <select id="escolha">
-              <option value="1" class="opcao">BASE64</option>
-              <option value="2" class="opcao">CIFRA DE CESAR</option>
-            </select>
-          </div>
-          <input type="number" placeholder="Passos" class="numero-passos">
+    <main class="corpo">
+        <h1 class="titulo">CºD!F!C@DºR</h1>
+        <select id="escolha" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="1" class="opcao">BASE64</option>
+            <option value="2" class="opcao">CIFRA DE CESAR</option>
+            <option value="0" class="opcao" selected></option>
+        </select>
+        <input type="number" placeholder="Passos" class="numero-passos">
         <textarea class="text"></textarea>
         <div class="corpo-bt">
-        <div class="text-box">
-            <a href="#" id="Codificar" class="btn btn-white btn-animate" onclick="cod()">Codificar</a>
-        </div>
-        <div class="text-box1">
-            <a href="#" id="Decodificar" class="btn1 btn-white1 btn-animate1" onclick="deco()">Decodificar</a>
-        </div>
-        <div class="text-box1">
-            <a href="#" id="limpar" class="btn1 btn-white1 btn-animate1" onclick="limpar()">Limpar</a>
-        </div>
+            <button class="bt btn btn-outline-dark"" onclick="cod()">Codificar</button>
+            <button class="bt btn btn-outline-dark"" onclick="deco()">Decodificador</button>
+            <button class="bt btn btn-outline-dark"" onclick="limpar()">Limpar</button>
         </div>
         <input type="text" value="" class="text" />
-    </article>
+        <div class="containers-info">
+            <div class="teste">
+                <img src="img/info.png" class="info" onclick="sobrecifra()">
+                <p class="texto-cifra">Cifra de Cesar</p>
+            </div>
+            <div class="teste">
+                <img src="img/info.png" class="info" onclick="sobrebase64()">
+                <p>Base64</p>
+            </div>
+        </div>
+    </main>
+    <section class="sumir">
+        <img src="img/fechar.png" class="fechar" onclick="fechar()">
+        <p class="exibirtexto">
+        </p>
+    </section>
     <script src="script.js"></script>
 </body>
+
 </html>
